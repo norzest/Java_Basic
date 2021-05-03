@@ -3,8 +3,8 @@ import java.util.HashMap;
 public class test {
 
 	public static void main(String[] args) {
-		String[] arr1 = {"leo", "kiki", "eden"};
-		String[] arr2 = {"eden", "kiki"};
+		String[] arr1 = {"leo", "leo", "kiki", "eden"};
+		String[] arr2 = {"leo", "eden", "kiki"};
 		test test = new test();
 		String temp = test.solution(arr1, arr2);
 		System.out.println(temp);
