@@ -16,15 +16,26 @@ public class ForDemo {
 			} // for j
 		} // for i
 		
-		int cnt = 99; // 2부터 100까지 수
-		for (int i = 2; i <= 100; ++i) {
-			for (int j = 2; j <= i/2; ++j) {
-				if (i % j == 0) { cnt--; break; } // 소수가 아니면 갯수 차감
+		
+		
+		int n = 100;
+		int cycle_num = 0;
+		int cnt = 99; // 2부터 n까지 수
+		int total = (n * (n + 1) / 2) - 1; // 2부터 n까지 합계
+		for (int i = 2; i <= n; ++i) {
+			for (int j = 2; j*j <= i; ++j) {
+				cycle_num++;
+				if (i % j == 0) { // 소수가 아니면 갯수, 합 차감
+					total -= i;
+					cnt--; break;
+				} // if
 			} // for j
 		} // for i
 		
-		System.out.println(cnt);
+		System.out.println(cycle_num);
+		System.out.printf("total: %d, cnt: %d", total, cnt);
 
 	} // main
+	
 
 } // class
