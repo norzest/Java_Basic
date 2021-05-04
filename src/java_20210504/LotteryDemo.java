@@ -11,7 +11,7 @@ public class LotteryDemo {
 			int temp = (int)(Math.random() * 45);
 			
 			boolean isOverlap = false; // 중복값인지 확인하는 변수
-			for (int j = 0; j < n; ++j) { // 중복값 확인
+			for (int j = 0; j < i; ++j) { // 중복값 확인
 				if(arr[j] == temp) {
 					isOverlap = true; break;
 				} // if overlap
@@ -29,7 +29,8 @@ public class LotteryDemo {
 		
 		
 		System.out.print("퀵: ");
-		int[] arr_temp = arr;
+		int[] arr_temp = new int[n];
+		System.arraycopy(arr, 0, arr_temp, 0, n);
 		quick_sort(arr_temp, 0, arr_temp.length-1);
 
 		for (int j = 0; j < n; ++j) {
@@ -40,7 +41,7 @@ public class LotteryDemo {
 		
 		
 		for (int j = 0; j < n; ++j) { // bubble sort
-			for (int k = 0; k < n-1; ++k) {
+			for (int k = 0; k < n-j-1; ++k) {
 				if (arr[k] > arr[k+1]) {
 					int temp = arr[k];
 					arr[k] = arr[k+1];
