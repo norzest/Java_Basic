@@ -3,23 +3,22 @@ package java_20210504;
 public class LotteryDemo {
 
 	public static void main(String[] args) {
-		int n = 6;
+		int n = 6; // 저장 할 갯수
 		int[] arr = new int[n];
 		
 		int i = 0;
 		while(arr[n-1] == 0) { // 중복값을 제외한 랜덤함 1~44까지의 수
 			int temp = (int)(Math.random() * 45);
 			
-			boolean isOverlap = false;
-			for (int j = 0; j < n; ++j) {
+			boolean isOverlap = false; // 중복값인지 확인하는 변수
+			for (int j = 0; j < n; ++j) { // 중복값 확인
 				if(arr[j] == temp) {
 					isOverlap = true; break;
 				} // if overlap
 			} // for j
 			
-			if(!isOverlap) {
-				arr[i++] = temp;
-			} // if is overlap
+			// 중복값이 아니면 배열에 추가
+			if(!isOverlap) { arr[i++] = temp; }
 		} // while
 		
 		for (int j = 0; j < n; ++j) {
