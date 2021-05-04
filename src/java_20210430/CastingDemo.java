@@ -16,7 +16,9 @@ public class CastingDemo {
 		byte b3 = 20;
 		byte b4 = (byte)(b2 + b3);
 		int b5 = b2 + b3;
-		
+		System.out.println(b4);
+		System.out.println(b5);
+
 		System.out.println(1 + 2 + 3 + "abc");
 		System.out.println("abc" + 1 + 2 + 3);
 		System.out.println("abc" + (1 + 2 + 3));

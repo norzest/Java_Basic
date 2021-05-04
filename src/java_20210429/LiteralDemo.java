@@ -23,6 +23,12 @@ public class LiteralDemo {
 		double d1 = 1234.45;
 		
 		boolean isExited = true;
+		
+		System.out.println(a5);
+		System.out.println(a6);
+		System.out.println(f1);
+		System.out.println(d1);
+		System.out.println(isExited);
 	}
 
 }

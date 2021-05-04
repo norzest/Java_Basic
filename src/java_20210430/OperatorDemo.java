@@ -21,7 +21,7 @@ public class OperatorDemo {
 		
 		System.out.println(1 == 2);
 		System.out.println(true && false);
-		System.out.println(true || false);
+		System.out.println(true); // == true || false
 		
 		
 		System.out.println(0b11 | 0b01);

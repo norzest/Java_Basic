@@ -6,6 +6,7 @@ public class IdentifierDemo {
 		int age = 20;
 		String name = "hello";
 		
+		System.out.printf("%d %s", age, name);
 	}
 
 }
