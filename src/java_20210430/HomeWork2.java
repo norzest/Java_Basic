@@ -12,14 +12,14 @@ public class HomeWork2 {
 		scan.close();
 		String day_of_the_week = "";
 		
-		HomeWork2 HomeWork2 = new HomeWork2();
-		day_of_the_week = HomeWork2.calendar(year, month, day);
+
+		day_of_the_week = calendar(year, month, day);
 		
 		System.out.printf("%d년 %d월 %d일 %s요일", year, month, day, day_of_the_week);
 
 	} // main
 	
-	public String calendar(int y, int m, int d) {
+	static String calendar(int y, int m, int d) {
 		String[] day_of_the_weeks = {"일", "월", "화", "수", "목", "금", "토"};
 		int[] month_day = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30};
 	

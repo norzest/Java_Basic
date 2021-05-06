@@ -5,12 +5,12 @@ public class test {
 	public static void main(String[] args) {
 		String[] arr1 = {"leo", "leo", "kiki", "eden"};
 		String[] arr2 = {"leo", "eden", "kiki"};
-		test test = new test();
-		String temp = test.solution(arr1, arr2);
+		
+		String temp = solution(arr1, arr2);
 		System.out.println(temp);
 	}
 	
-	public String solution(String[] participant, String[] completion) {
+	static String solution(String[] participant, String[] completion) {
         HashMap<String, Integer> ht = new HashMap<>();
         
         for (int i = 0; i < participant.length; ++i) {

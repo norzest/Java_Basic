@@ -57,7 +57,7 @@ public class LotteryDemo {
 
 	} // main
 	
-	public static void quick_sort(int[] arr, int left, int right) {
+	static void quick_sort(int[] arr, int left, int right) {
 		
 		if (left < right) {
 			int pivot = partition(arr, left, right);
@@ -68,7 +68,7 @@ public class LotteryDemo {
 		
 	} // quick_sort
 	
-	public static int partition(int[] arr, int left, int right) {
+	static int partition(int[] arr, int left, int right) {
 		int pivot = arr[(left + right)/2];
 		
 		while (left < right) {
