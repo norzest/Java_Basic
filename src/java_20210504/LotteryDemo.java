@@ -58,7 +58,7 @@ public class LotteryDemo {
 	} // main
 	
 	static void quick_sort(int[] arr, int left, int right) {
-		
+
 		if (left < right) {
 			int pivot = partition(arr, left, right);
 			
