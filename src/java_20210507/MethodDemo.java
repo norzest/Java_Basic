@@ -1,7 +1,5 @@
 package java_20210507;
 
-import java.util.Iterator;
-
 public class MethodDemo {
 	
 	public static void main(String[] args) {
@@ -53,7 +51,7 @@ public class MethodDemo {
 			
 			if (i % 7 == 6) { System.out.println(); }
 		} // for i
-		
+
 	} // print
 	
 } // class
