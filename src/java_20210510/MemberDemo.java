@@ -10,7 +10,7 @@ public class MemberDemo {
 		m.setAddr1("경기도");
 		m.setAddr2("안산시");
 		m.setAge(30);
-			
+	
 		print(m);
 	}
 	
