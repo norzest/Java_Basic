@@ -1,15 +1,15 @@
 package java_20210511.prc;
 
 public class StopWatchManager {
-	private static StopWatchManager single;
+	private StopWatchManager() {
+	}
 
-	private StopWatchManager() {}
+	private static class InnerInstanceClass {
+		private static final StopWatchManager single = new StopWatchManager();
+	}
 
 	public static StopWatchManager getInstance() {
-		if (single == null) {
-			single = new StopWatchManager();
-		}
-		return single;
+		return InnerInstanceClass.single;
 	}
 	
 	public void run(StopWatch s) {
