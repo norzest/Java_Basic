@@ -4,12 +4,12 @@ public class StopWatchManager {
 	private StopWatchManager() {
 	}
 
-	private static class InnerInstanceClass {
+	private static class Holder {
 		private static final StopWatchManager single = new StopWatchManager();
 	}
 
 	public static StopWatchManager getInstance() {
-		return InnerInstanceClass.single;
+		return Holder.single;
 	}
 	
 	public void run(StopWatch s) {
