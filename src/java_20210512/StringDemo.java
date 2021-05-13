@@ -16,25 +16,13 @@ public class StringDemo {
 	
 	public static String reverse2(String str) {
 		int strLength =  str.length();
-		String[] arr = new String[strLength];
+		String arr = new String();
 		
-		for (int i = 0; i < strLength; ++i) {
-			arr[i] = str.substring(i, i+1);
+		for (int i = strLength-1; i >= 0; --i) {
+			arr += str.substring(i, i+1);
 		}
 		
-		for (int i = 0; i < strLength/2; ++i) {
-			String temp = arr[i];
-			arr[i] = arr[strLength-i-1];
-			arr[strLength-i-1] = temp;
-		}
-		
-		
-		String result = new String();
-		for (int i = 0; i < strLength; ++i) {
-			result = result.concat(arr[i]);
-		}
-		
-		return result;
+		return arr;
 	}
 	
 	public static void main(String[] args) {
@@ -43,10 +31,10 @@ public class StringDemo {
 		String str3 = "test";
 		String str4 = "test";
 		
-		//System.out.println(str1==str2);
-		//System.out.println(str1.equals(str2));
-		//System.out.println(str3==str4);
-		//System.out.println(str3.equals(str4));
+		System.out.println(str1==str2);
+		System.out.println(str1.equals(str2));
+		System.out.println(str3==str4);
+		System.out.println(str3.equals(str4));
 		
 		String strr = "beautiful";
 		System.out.println(reverse(strr));
