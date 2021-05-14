@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class MemberDemo {
 	public static void main(String[] args) {
+
 		MemberManager m = new MemberManager();
 		
 		m.insert("asd", "홍길동", 33);
@@ -36,7 +37,7 @@ public class MemberDemo {
 					list.get(i).getAge());
 		}
 		
-System.out.println("======================");
+		System.out.println("======================");
 		
 		m.update("name", "홍길동2", "홍길동7");
 		for (int i = 0; i < list.size(); i++) {
@@ -45,6 +46,6 @@ System.out.println("======================");
 					list.get(i).getName(),
 					list.get(i).getAge());
 		}
-		
+
 	} // main
 } // class

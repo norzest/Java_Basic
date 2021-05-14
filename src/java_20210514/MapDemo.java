@@ -5,16 +5,16 @@ import java.util.Iterator;
 
 public class MapDemo {
 	public static void main(String[] args) {
-		HashMap map = new HashMap();
+		HashMap<String, String> map = new HashMap<>();
 		
-		map.put(1, "test");
-		map.put("asd", 2);
+		map.put("qwe", "test");
+		map.put("asd", "test2");
 		
-		System.out.println(map.get(1));
+		System.out.println(map.get("qwe"));
 		System.out.println(map.get("asd"));
 		System.out.println("================");
 		
-		Iterator i = map.keySet().iterator();
+		Iterator<String> i = map.keySet().iterator();
 		while(i.hasNext()) {
 			System.out.println(map.get(i.next()));
 		}
