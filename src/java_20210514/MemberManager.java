@@ -16,34 +16,25 @@ public class MemberManager {
 		list.add(new Member(id, name, age));
 	} // insert
 	
-	public void update(String variable, String value, String nValue) {
-		
-		if (variable == "id") {
-			for (int i = 0; i < list.size(); i++) {
-				if(value.equals(list.get(i).getId())) {
-					Member temp = list.get(i);
-					list.set(i, new Member(nValue, temp.getName(), temp.getAge()));
-					break;
-				}
-			}
-		} else if (variable == "name") {
-			for (int i = 0; i < list.size(); i++) {
-				if(value.equals(list.get(i).getName())) {
-					Member temp = list.get(i);
-					list.set(i, new Member(temp.getId(), nValue, temp.getAge()));
-					break;
-				}
-			}
-		} else if (variable == "age") {
-			for (int i = 0; i < list.size(); i++) {
-				if(Integer.parseInt(value) == list.get(i).getAge()) {
-					Member temp = list.get(i);
-					list.set(i, new Member(temp.getId(), temp.getName(), Integer.parseInt(nValue)));
-					break;
-				}
+	public void update(String value, String nValue) {
+		for (int i = 0; i < list.size(); i++) {
+			if(value.equals(list.get(i).getName())) {
+				Member temp = list.get(i);
+				list.set(i, new Member(temp.getId(), nValue, temp.getAge()));
+				break;
 			}
 		}
-	} // update
+	} // update name
+	
+	public void update(int value, int nValue) {
+		for (int i = 0; i < list.size(); i++) {
+			if(value == list.get(i).getAge()) {
+				Member temp = list.get(i);
+				list.set(i, new Member(temp.getId(), temp.getName(), nValue));
+				break;
+			}
+		}
+	} // update age
 
 	public void delete(String id) {
 		for (int i = 0; i < list.size(); i++) {

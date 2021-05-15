@@ -39,7 +39,7 @@ public class MemberDemo {
 		
 		System.out.println("======================");
 		
-		m.update("name", "홍길동2", "홍길동7");
+		m.update("홍길동2", "홍길동7");
 		for (int i = 0; i < list.size(); i++) {
 			System.out.printf("%s %s %d \n",
 					list.get(i).getId(),
