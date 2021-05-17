@@ -23,7 +23,7 @@ public class ThrowDemo {
 	public static void main(String[] args) {
 		double balance = 0;
 		
-		try {			
+		try {
 			balance = withdraw("123-123-123456", 100000);
 			System.out.printf("잔고 : %,.2f", balance);
 		} catch(Exception e) {
