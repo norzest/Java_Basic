@@ -12,7 +12,7 @@ public class FileInOutStreamDemo {
 			fis = new FileInputStream(
 					"C:\\Users\\dark1\\Downloads\\eclipse-jee-2021-03-R-win32-x86_64//eclipse-jee-2021-03-R-win32-x86_64.zip");
 			fos = new FileOutputStream(
-					"C:\\Users\\dark1\\eclipse-workspace\\Java_Fundamental\\src\\java_20210518\\test//eclipse_copy.zip");
+					"C:\\Users\\dark1\\eclipse-workspace\\Java_Fundamental\\src\\java_20210518\\test//eclipse_copy.txt");
 			
 			long start = System.currentTimeMillis();
 			
