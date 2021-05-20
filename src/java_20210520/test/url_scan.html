@@ -1,0 +1,1286 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/lib/lightbox/css/lightbox.min.css" /><link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/style/content/font.css?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2" /><link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/style/content/content.css?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2" /><!--[if lt IE 9]><script src="https://t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script><![endif]--><!--[if gte IE 9]>
+<!--><script src="https://t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.2.1.min.js"></script><!--<![endif]-->
+<script src="https://t1.daumcdn.net/tistory_admin/lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
+<script>
+lightbox.options.fadeDuration = 200;
+lightbox.options.resizeDuration = 200;
+lightbox.options.wrapAround = false;
+lightbox.options.albumLabel = "%1 / %2";
+</script>
+<script>var tjQuery = jQuery.noConflict(true);</script><style type="text/css">.tt_article_useless_p_margin p {padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}</style><meta name="referrer" content="always"><link rel="icon" href="//t1.daumcdn.net/tistory_admin/static/top/favicon_0630.ico" /><link rel="apple-touch-icon" href="//img1.daumcdn.net/thumb/C180x180/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F222DA83E58862C4319">
+<link rel="apple-touch-icon" sizes="76x76" href="//img1.daumcdn.net/thumb/C76x76/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F222DA83E58862C4319">
+<link rel="apple-touch-icon" sizes="120x120" href="//img1.daumcdn.net/thumb/C120x120/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F222DA83E58862C4319">
+<link rel="apple-touch-icon" sizes="152x152" href="//img1.daumcdn.net/thumb/C152x152/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F222DA83E58862C4319"><meta name="description" content="안녕하세요. 제임스입니다. 계속해서 날짜 관련 코드 작성법에 대해 정리하고 있는데요. 오늘은 날짜를 원하는 형식으로 프린트 하는 방법에 대해 알아 보겠습니다. 앞선 포스팅에서는 각각의 년, 월, 일, 시간..">
+
+<!-- BEGIN OPENGRAPH -->
+<link rel="canonical" href="https://jamesdreaming.tistory.com/99" /><meta property="og:type" content="article"><meta property="og:url" content="https://jamesdreaming.tistory.com/99" ><meta property="og:site_name" content="Dev Life in IT" ><meta property="og:title" content="[ 자바 코딩 ] SimpleDateFormat 날짜 형식 지정하기" ><meta name="by" content="IT 쉬운코딩이최고" ><meta property="og:description" content="안녕하세요. 제임스입니다. 계속해서 날짜 관련 코드 작성법에 대해 정리하고 있는데요. 오늘은 날짜를 원하는 형식으로 프린트 하는 방법에 대해 알아 보겠습니다. 앞선 포스팅에서는 각각의 년, 월, 일, 시간.." ><meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F993F53365A4FB13C06" ><meta property="article:section" content="IT 인터넷" >
+<!-- END OPENGRAPH -->
+
+
+
+<!-- BEGIN TWITTERCARD -->
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@TISTORY"><meta name="twitter:title" content="[ 자바 코딩 ] SimpleDateFormat 날짜 형식 지정하기" ><meta name="twitter:description" content="안녕하세요. 제임스입니다. 계속해서 날짜 관련 코드 작성법에 대해 정리하고 있는데요. 오늘은 날짜를 원하는 형식으로 프린트 하는 방법에 대해 알아 보겠습니다. 앞선 포스팅에서는 각각의 년, 월, 일, 시간.." ><meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F993F53365A4FB13C06" >
+<!-- END TWITTERCARD -->
+
+
+
+<!-- BEGIN DAUMAPP -->
+<meta property="dg:plink" content="https://jamesdreaming.tistory.com/99" ><meta name="plink" content="https://jamesdreaming.tistory.com/99" ><meta name="title" content="[ 자바 코딩 ] SimpleDateFormat 날짜 형식 지정하기" ><meta name="article:media_name" content="Dev Life in IT" ><meta property="article:mobile_url" content="https://jamesdreaming.tistory.com/m/99" ><meta property="article:pc_url" content="https://jamesdreaming.tistory.com/99" ><meta property="article:mobile_view_url" content="https://jamesdreaming.tistory.com/m/99" ><meta property="article:pc_view_url" content="https://jamesdreaming.tistory.com/99" ><meta property="article:talk_channel_view_url" content="https://jamesdreaming.tistory.com/m/99" ><meta property="article:pc_service_home" content="https://www.tistory.com" ><meta property="article:mobile_service_home" content="https://www.tistory.com/m" ><meta property="article:txid" content="2647223_99" /><meta property="article:published_time" content="2018-01-10T08:00:00+09:00" ><meta property="og:regDate" content="20180106020930" ><meta property="article:modified_time" content="2018-06-12T22:47:12+09:00" >
+<!-- END DAUMAPP -->
+
+
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https:\/\/jamesdreaming.tistory.com\/99"},"url":"https:\/\/jamesdreaming.tistory.com\/99","headline":"[ \uc790\ubc14 \ucf54\ub529 ] SimpleDateFormat \ub0a0\uc9dc \ud615\uc2dd \uc9c0\uc815\ud558\uae30","description":"\uc548\ub155\ud558\uc138\uc694. \uc81c\uc784\uc2a4\uc785\ub2c8\ub2e4. \uacc4\uc18d\ud574\uc11c \ub0a0\uc9dc \uad00\ub828 \ucf54\ub4dc \uc791\uc131\ubc95\uc5d0 \ub300\ud574 \uc815\ub9ac\ud558\uace0 \uc788\ub294\ub370\uc694. \uc624\ub298\uc740 \ub0a0\uc9dc\ub97c \uc6d0\ud558\ub294 \ud615\uc2dd\uc73c\ub85c \ud504\ub9b0\ud2b8 \ud558\ub294 \ubc29\ubc95\uc5d0 \ub300\ud574 \uc54c\uc544 \ubcf4\uaca0\uc2b5\ub2c8\ub2e4. \uc55e\uc120 \ud3ec\uc2a4\ud305\uc5d0\uc11c\ub294 \uac01\uac01\uc758 \ub144, \uc6d4, \uc77c, \uc2dc\uac04..","author":{"@type":"Person","name":"IT \uc26c\uc6b4\ucf54\ub529\uc774\ucd5c\uace0"},"image":{"@type":"ImageObject","url":"https:\/\/img1.daumcdn.net\/thumb\/R800x0\/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F993F53365A4FB13C06","width":"800px","height":"800px"},"datePublished":"20180110T08:00:00+09:00","dateModified":"20180612T22:47:12+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https:\/\/t1.daumcdn.net\/tistory_admin\/static\/images\/openGraph\/opengraph.png","width":"800px","height":"800px"}}}</script><meta name="robots" content="max-image-preview:large">
+<!-- END STRUCTURED_DATA -->
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="naver-site-verification" content="755421d7da142a67e3c9bc854f4117c533f3b13f"/>
+<link rel="alternate" type="application/rss+xml" title="Dev Life in IT" href="https://jamesdreaming.tistory.com/rss" />
+<link href="https://tistory3.daumcdn.net/tistory/2647223/skin/images/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href="https://tistory3.daumcdn.net/tistory/2647223/skin/style.css?_T_=1614699957" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" />
+<title>Dev Life in IT :: [ 자바 코딩 ] SimpleDateFormat 날짜 형식 지정하기</title>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Google 광고 추가 : 2021.02.25 -->
+<script data-ad-client="ca-pub-4494328016282844" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- // Google 광고 추가 : 2021.02.25 -->
+
+
+<!-- Google 광고 추가 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+	// 2019.10.05 자동광고 코드 추가
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4494328016282844",
+          enable_page_level_ads: true
+     });
+		
+// 2018.01 ~ 
+//	(adsbygoogle = window.adsbygoogle || []).push({
+//		google_ad_client: "pub-4494328016282844",
+//		enable_page_level_ads: true
+//	});
+	
+// 2017.10 ~ 
+//  (adsbygoogle = window.adsbygoogle || []).push({
+//    google_ad_client: "ca-pub-4494328016282844",
+//    enable_page_level_ads: true
+//  });
+	
+</script>
+
+<!-- 구글 애널리틱스 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102574433-1"></script>
+<script>
+	// Google 애널리틱스 추적 코드 추가
+	window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-102574433-1');
+	
+</script>
+	
+<meta http-equiv="imagetoolbar" content="no"/><!-- BEGIN GOOGLE_SITE_VERIFICATION -->
+<meta name="google-site-verification" content="q-TGql6H_GqAgcCIHHI4tyJk0ETjfvRAo0ZksqiaWYk" />
+<!-- END GOOGLE_SITE_VERIFICATION --><link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/plugins/A_ShareEntryWithSNS/css/shareEntryWithSNS.css?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2">
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/plugins/A_ShareEntryWithSNS/script/shareEntryWithSNS.js?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2"></script>
+
+<style type="text/css">
+		#daumSearchBox {
+			height: 21px;
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+			margin: 5px auto ;
+			padding: 0;
+		}
+		#daumSearchBox input {
+			background: none;
+			margin : 0;
+			padding : 0;
+			border : 0;
+		}
+		#daumSearchBox #daumLogo {
+			width: 34px;
+			height: 21px;
+			float: left;
+			margin-right: 5px;
+			background-image : url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+		}
+		#daumSearchBox #show_q {
+			background-color: transparent;
+			border: none;
+			font: 12px Gulim, Sans-serif;
+			color: #555;
+			margin-top: 4px;
+			margin-right: 15px;
+			float: left;
+		}
+
+		#daumSearchBox #show_btn {
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+			width: 37px;
+			height: 21px;
+			float: left;
+			margin:0;
+			cursor:pointer;
+			text-indent:-1000em;
+		}
+	</style>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/plugins/TistoryProfileLayer/style.css?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2" />
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/plugins/TistoryProfileLayer/profile.js?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2"></script>
+	<style type="text/css">
+		.another_category { border: 1px solid #E5E5E5; padding: 10px 10px 5px; margin:10px 0; clear: both; }
+		.another_category h4 { font-size: 12px !important; margin: 0 !important; border-bottom: 1px solid #E5E5E5 !important; padding: 2px 0 6px !important; }
+		.another_category h4 a { font-weight: bold !important; }
+		.another_category table { table-layout: fixed; border-collapse: collapse; width: 100% !important; margin-top: 10px !important; }
+		* html .another_category table { width: auto !important; }
+		*:first-child+html .another_category table { width: auto !important; }
+		.another_category th, .another_category td { padding: 0 0 4px !important; }
+		.another_category th { text-align: left; font-size: 12px !important; font-weight: normal;  word-break: break-all; overflow: hidden; line-height: 1.5; }
+		.another_category td { text-align: right; width: 80px; font-size: 11px; }
+		.another_category th a { font-weight: normal; text-decoration: none; border: none !important; }
+		.another_category th a.current{ font-weight: bold; text-decoration: none !important; border-bottom: 1px solid !important; }
+		.another_category th span { font-weight: normal; text-decoration: none; font: 10px Tahoma, Sans-serif; border: none !important; }
+
+		.another_category_color_gray, .another_category_color_gray h4 { border-color: #E5E5E5 !important; }
+		.another_category_color_gray * { color: #909090 !important; }
+		.another_category_color_gray th a.current{border-color:#909090 !important;}
+		.another_category_color_gray h4, .another_category_color_gray h4 a { color: #737373 !important; }
+
+
+		.another_category_color_red, .another_category_color_red h4 { border-color: #F6D4D3 !important;  }
+		.another_category_color_red * { color: #E86869 !important; }
+		.another_category_color_red th a.current{border-color:#E86869 !important;}
+		.another_category_color_red h4, .another_category_color_red h4 a { color: #ED0908 !important; }
+
+
+		.another_category_color_green, .another_category_color_green h4 { border-color: #CCE7C8 !important; }
+		.another_category_color_green * { color: #64C05B !important; }
+		.another_category_color_green th a.current{border-color:#64C05B !important;}
+		.another_category_color_green h4, .another_category_color_green h4 a { color: #3EA731 !important; }
+
+
+		.another_category_color_blue, .another_category_color_blue h4 { border-color: #C8DAF2 !important; }
+		.another_category_color_blue * { color: #477FD6 !important; }
+		.another_category_color_blue th a.current{border-color:#477FD6 !important;}
+		.another_category_color_blue h4, .another_category_color_blue h4 a { color: #1960CA !important; }
+
+
+		.another_category_color_violet, .another_category_color_violet h4 { border-color: #E1CEEC !important;  }
+		.another_category_color_violet * { color:#9D64C5 !important; }
+		.another_category_color_violet th a.current{border-color:#9D64C5 !important;}
+		.another_category_color_violet h4, .another_category_color_violet h4 a { color: #7E2CB5 !important; }
+	</style>
+<script type="text/javascript">
+        
+        window.TistoryBlog = {
+            basePath: "",
+            url: "https://jamesdreaming.tistory.com",
+            tistoryUrl: "https://jamesdreaming.tistory.com",
+			manageUrl: 'https://jamesdreaming.tistory.com/manage',
+            token: '4TFo8OsHkCNaxvK5VBwCvg=='
+        };
+        var servicePath = "";
+        var blogURL = "";
+    </script>
+
+	<script> (function() { window.orgjQuery = window.jQuery; window.jQuery = tjQuery })()</script>
+    <script type="text/javascript" defer src=https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/script/reaction/reaction-button-container.min.js?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2></script>
+    <script> (function() { window.jQuery = window.orgjQuery; delete window.orgjQuery })()</script>
+        <script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/script/_/base.js?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2"></script>
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/style/dialog.css?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2"/>
+            <link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/tistory_admin/www/style/top/font.css">
+    <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/style/postBtn.css?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2"/>
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/style/component/tistory.css?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2" />
+        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script></head>
+<body>
+<script type="text/javascript">
+	(function() {
+		if (!window.T) {
+			window.T = {}
+		}
+		window.T.config = {"TOP_SSL_URL":"https:\/\/www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"\/101","NEXT_PAGE":"\/100","BLOG":{"isDormancy":false,"title":"Dev Life in IT"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https:\/\/www.tistory.com\/auth\/login\/?redirectUrl=http%3A%2F%2Fjamesdreaming.tistory.com%2F99","DEFAULT_URL":"https:\/\/jamesdreaming.tistory.com","USER":{"name":null,"homepage":null},"ROLE_GROUP":"visitor","SUBSCRIPTION":{"status":"none","isConnected":false,"isProcessing":false,"isPending":false,"isWait":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"TOP_URL":"https:\/\/www.tistory.com","JOIN_URL":"https:\/\/www.tistory.com\/member\/join"};
+		window.appInfo = {"domain":"tistory.com","topUrl":"https:\/\/www.tistory.com","loginUrl":"https:\/\/www.tistory.com\/auth\/login","logoutUrl":"https:\/\/www.tistory.com\/auth\/logout"};
+
+        window.initData = {};
+        
+	})();
+</script>
+
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/script/blog/common.js?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2"></script>
+<div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<div id="header">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container">
+						<div class="navbar-header">
+							<a href="/" title="Dev Life in IT" class="navbar-brand"><img src="https://tistory3.daumcdn.net/tistory/2647223/skin/images/logo_shrink.png" width="170px"></a>
+							<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="navbar-collapse collapse" id="navbar-main">
+							<ul class="nav navbar-nav">
+								<li>
+									<a href="/notice">공지사항</a>
+								</li>
+							</ul>
+
+							<ul class="nav navbar-nav navbar-right">
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><i class="fa fa-folder"></i>Tistory <span class="caret"></span></a>
+									<ul class="dropdown-menu" aria-labelledby="download">
+										<li><a href="/tag">태그</a></li>
+										<li><a href="/location">위치로그</a></li>
+										<li><a href="/guestbook">방명록</a></li>
+										<li role="separator" class="divider"></li>
+										<li><a href="/admin">관리자</a></li>
+										<li><a href="/admin/entry/post">글쓰기</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<div id="carousel" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#carousel" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel" data-slide-to="1"></li>
+						<li data-target="#carousel" data-slide-to="2"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<img src="https://tistory3.daumcdn.net/tistory/2647223/skin/images/slider_01.png" width="100%" alt="Carousel 01">
+							<div class="carousel-caption">
+							</div>
+						</div>
+						<div class="item">
+							<img src="https://tistory3.daumcdn.net/tistory/2647223/skin/images/slider_02.png" width="100%" alt="Carousel 02">
+							<div class="carousel-caption">
+							</div>
+						</div>
+							<div class="item">
+							<img src="https://tistory3.daumcdn.net/tistory/2647223/skin/images/slider_03.png" width="100%" alt="Carousel 03">
+							<div class="carousel-caption">
+							</div>
+						</div>
+					</div>
+
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+					<i class="fa fa-chevron-left fa-2x"></i>
+					<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+					<i class="fa fa-chevron-right fa-2x"></i>
+					<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- header close -->
+
+<div id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+					<div class="entry">
+						<div class="titleWrap jumbotron">
+							<h2><a href="/99">[ 자바 코딩 ] SimpleDateFormat 날짜 형식 지정하기</a></h2>
+							<span class="category label label-primary"><a href="/category/Java">Java</a></span>
+							<span class="date label label-info">2018. 1. 10. 08:00</span>
+							
+						</div><!-- titleWrap close -->
+
+						<div class="article">
+							<div class="tt_article_useless_p_margin contents_style"><div style="text-align:center;margin:0 0 10px 0;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Adsense_728x90_20170626 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4494328016282844"
+     data-ad-slot="5870569019"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><p style="text-align: center; clear: none; float: none;"><span class="imageblock" style="display:inline-block;width:500px;width: 500px; height: 293px;;height:auto;max-width:100%"><span data-url="https://t1.daumcdn.net/cfile/tistory/9981DC365B1FCED923?download" data-lightbox="lightbox"><img srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F9981DC365B1FCED923EF49" src="https://t1.daumcdn.net/cfile/tistory/9981DC365B1FCED923" style="cursor: pointer;max-width:100%;height:auto" width="500" height="293" filename="java_background_img.jpg" filemime="image/jpeg" style="width: 500px; height: 293px;" /></span></span></p><p style="text-align: center; clear: none; float: none;"><br /></p><p><br /></p><p><br /></p><p>안녕하세요. 제임스입니다.&nbsp;</p><p><br /></p><p>계속해서 날짜 관련 코드 작성법에 대해 정리하고 있는데요. 오늘은 날짜를 원하는 형식으로 프린트 하는 방법에 대해 알아 보겠습니다.&nbsp;</p><p>앞선 포스팅에서는 각각의 년, 월, 일, 시간 값들을 뽑아낸 후 아래와 같이 이쁘지 않은 형태로 프린트 했었습니다.</p><p><br /></p><div class="colorscripter-code" style="color:#f0f0f0; font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important; overflow:auto"><table class="colorscripter-code-table" style="margin:0; padding:0; border:none; background-color:#272727; border-radius:4px; line-height:140%" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:6px; border-right:2px solid #4f4f4f"><div style="margin:0; padding:0; word-break:normal; text-align:right; color:#aaa; font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important">1</div></td><td style="padding:6px 0"><div style="margin:0; padding:0; color:#f0f0f0; font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important"><div style="padding:0 6px; white-space:pre"><span style="color:#4be6fa">System</span>.<span style="color:#4be6fa">out</span>.<span style="color:#4be6fa">println</span>(year<span style="color:#ff3399">+</span><span style="color:#ffd500">"."</span><span style="color:#ff3399">+</span>month<span style="color:#ff3399">+</span><span style="color:#ffd500">"."</span><span style="color:#ff3399">+</span>date<span style="color:#ff3399">+</span><span style="color:#ffd500">"("</span><span style="color:#ff3399">+</span>korDayOfWeek<span style="color:#ff3399">+</span><span style="color:#ffd500">")&nbsp;"</span><span style="color:#ff3399">+</span>hour<span style="color:#ff3399">+</span><span style="color:#ffd500">":"</span><span style="color:#ff3399">+</span>minute<span style="color:#ff3399">+</span><span style="color:#ffd500">":"</span><span style="color:#ff3399">+</span>second);</div></div></td><td style="vertical-align:bottom; padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank"><span style="font-size:9px; word-break:normal; background-color:#4f4f4f; color:white; border-radius:10px; padding:1px">cs</span></a></td></tr></tbody></table></div><p><br /></p><p>이렇게 프린트 하기 위해 너무 많은 코드를 작성해야 합니다.&nbsp;</p><p><br /></p><p>그래서 자바에서는&nbsp; SimpleDateFormat 이라는 무지무지 고마운 클래스를 제공하고 있습니다.&nbsp;</p><p>지금부터 이 SimpleDateFormat 에 대해 알아 보겠습니다.&nbsp;</p><p><br /></p><p><b><span style="color: rgb(0, 85, 255); font-size: 14pt;">■ SimpleDateFormat</span></b></p><p><b><br /></b></p><p><b>참고:&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html" target="_blank" class="tx-link" style="color: rgb(0, 85, 255);">https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html</a></b></p><p><br /></p><p>이 클래스는 날짜를 원하는 포맷으로 파싱시켜 주는 역할을 합니다.</p><p>이때 사용하는 패턴들이 있는데요. 그 패턴 중 우리가 사용할 몇가지만 정리해보겠습니다.&nbsp;</p><p><br /></p><table table"="" border="0" cellspacing="0" cellpadding="0" summary="Chart shows pattern letters, date/time component, presentation, and examples." width="0" style="width:273.0pt;margin-left:-.25pt;border-collapse:collapse;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 4.95pt 0cm 4.95pt">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:28.5pt">
+  <td width="71" style="width:54.0pt;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;background:#999999;padding:0cm 4.95pt 0cm 4.95pt;
+  height:28.5pt">
+  <p align="center" style="margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;mso-pagination:widow-orphan;text-autospace:
+  ideograph-numeric ideograph-other;word-break:keep-all"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;color:white;mso-font-kerning:0pt">Letter</span></p>
+  </td>
+  <td width="104" style="width:78.0pt;border:solid windowtext 1.0pt;border-left:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;background:#999999;padding:0cm 4.95pt 0cm 4.95pt;
+  height:28.5pt">
+  <p align="center" style="margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;mso-pagination:widow-orphan;text-autospace:
+  ideograph-numeric ideograph-other;word-break:keep-all"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;color:white;mso-font-kerning:0pt">Date or Time Component</span></p>
+  </td>
+  <td width="94" style="width:70.0pt;border:solid windowtext 1.0pt;border-left:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;background:#999999;padding:0cm 4.95pt 0cm 4.95pt;
+  height:28.5pt">
+  <p align="center" style="margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;mso-pagination:widow-orphan;text-autospace:
+  ideograph-numeric ideograph-other;word-break:keep-all"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;color:white;mso-font-kerning:0pt">Presentation</span></p>
+  </td>
+  <td width="95" style="width:71.0pt;border:solid windowtext 1.0pt;border-left:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;background:#999999;padding:0cm 4.95pt 0cm 4.95pt;
+  height:28.5pt">
+  <p align="center" style="margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;mso-pagination:widow-orphan;text-autospace:
+  ideograph-numeric ideograph-other;word-break:keep-all"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;color:white;mso-font-kerning:0pt">Examples</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1;height:16.5pt">
+  <td width="71" valign="top" style="width:54.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-left-alt:solid windowtext .5pt;mso-border-bottom-alt:
+  solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
+  0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">y</span></p>
+  </td>
+  <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style="font-size: 11pt; font-family: 돋움;">년</span></p>
+  </td>
+  <td width="94" valign="top" style="width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><u><span style="font-size:11.0pt;mso-ascii-font-family:&quot;맑은 고딕&quot;;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-hansi-font-family:&quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#0563C1;
+  mso-font-kerning:0pt"><a href="https://developer.android.com/reference/java/text/SimpleDateFormat.html#year"><span style="color:#0563C1">Year</span></a></span></u></p>
+  </td>
+  <td width="95" valign="top" style="width:71.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">1996</span><span style="font-size: 11pt; font-family: Arial, sans-serif;">;&nbsp;</span><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">96</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2;height:16.5pt">
+  <td width="71" valign="top" style="width:54.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-left-alt:solid windowtext .5pt;mso-border-bottom-alt:
+  solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
+  0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">M</span></p>
+  </td>
+  <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style="font-size: 11pt; font-family: 돋움;">월</span></p>
+  </td>
+  <td width="94" valign="top" style="width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><u><span style="font-size:11.0pt;mso-ascii-font-family:&quot;맑은 고딕&quot;;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-hansi-font-family:&quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#0563C1;
+  mso-font-kerning:0pt"><a href="https://developer.android.com/reference/java/text/SimpleDateFormat.html#month"><span style="color:#0563C1">Month</span></a></span></u></p>
+  </td>
+  <td width="95" valign="top" style="width:71.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">July</span><span style="font-size: 11pt; font-family: Arial, sans-serif;">;&nbsp;</span><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">Jul</span><span style="font-size: 11pt; font-family: Arial, sans-serif;">;&nbsp;</span><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">07</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:3;height:16.5pt">
+  <td width="71" valign="top" style="width:54.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-left-alt:solid windowtext .5pt;mso-border-bottom-alt:
+  solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
+  0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">d</span></p>
+  </td>
+  <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style="font-size: 11pt; font-family: 돋움;">일</span></p>
+  </td>
+  <td width="94" valign="top" style="width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><u><span style="font-size:11.0pt;mso-ascii-font-family:&quot;맑은 고딕&quot;;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-hansi-font-family:&quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#0563C1;
+  mso-font-kerning:0pt"><a href="https://developer.android.com/reference/java/text/SimpleDateFormat.html#number"><span style="color:#0563C1">Number</span></a></span></u></p>
+  </td>
+  <td width="95" valign="top" style="width:71.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">10</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:4;height:16.5pt">
+  <td width="71" valign="top" style="width:54.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-left-alt:solid windowtext .5pt;mso-border-bottom-alt:
+  solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
+  0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">H</span></p>
+  </td>
+  <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style="font-size: 11pt; font-family: 돋움;">시간</span><span style="font-size: 11pt; font-family: Arial, sans-serif;">(24</span><span style="font-size: 11pt; font-family: 돋움;">시간</span><span style="font-size: 11pt; font-family: Arial, sans-serif;">)</span></p>
+  </td>
+  <td width="94" valign="top" style="width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><u><span style="font-size:11.0pt;mso-ascii-font-family:&quot;맑은 고딕&quot;;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-hansi-font-family:&quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#0563C1;
+  mso-font-kerning:0pt"><a href="https://developer.android.com/reference/java/text/SimpleDateFormat.html#number"><span style="color:#0563C1">Number</span></a></span></u></p>
+  </td>
+  <td width="95" valign="top" style="width:71.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">0</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:5;height:16.5pt">
+  <td width="71" valign="top" style="width:54.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-left-alt:solid windowtext .5pt;mso-border-bottom-alt:
+  solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
+  0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">h</span></p>
+  </td>
+  <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style="font-size: 11pt; font-family: 돋움;">시간</span><span style="font-size: 11pt; font-family: Arial, sans-serif;">(am/pm)</span></p>
+  </td>
+  <td width="94" valign="top" style="width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><u><span style="font-size:11.0pt;mso-ascii-font-family:&quot;맑은 고딕&quot;;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-hansi-font-family:&quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#0563C1;
+  mso-font-kerning:0pt"><a href="https://developer.android.com/reference/java/text/SimpleDateFormat.html#number"><span style="color:#0563C1">Number</span></a></span></u></p>
+  </td>
+  <td width="95" valign="top" style="width:71.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">12</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:6;height:16.5pt">
+  <td width="71" valign="top" style="width:54.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-left-alt:solid windowtext .5pt;mso-border-bottom-alt:
+  solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
+  0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">m</span></p>
+  </td>
+  <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style="font-size: 11pt; font-family: 돋움;">분</span></p>
+  </td>
+  <td width="94" valign="top" style="width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><u><span style="font-size:11.0pt;mso-ascii-font-family:&quot;맑은 고딕&quot;;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-hansi-font-family:&quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#0563C1;
+  mso-font-kerning:0pt"><a href="https://developer.android.com/reference/java/text/SimpleDateFormat.html#number"><span style="color:#0563C1">Number</span></a></span></u></p>
+  </td>
+  <td width="95" valign="top" style="width:71.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">30</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:7;mso-yfti-lastrow:yes;height:16.5pt">
+  <td width="71" valign="top" style="width:54.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-left-alt:solid windowtext .5pt;mso-border-bottom-alt:
+  solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
+  0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">s</span></p>
+  </td>
+  <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style="font-size: 11pt; font-family: 돋움;">초</span></p>
+  </td>
+  <td width="94" valign="top" style="width:70.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><u><span style="font-size:11.0pt;mso-ascii-font-family:&quot;맑은 고딕&quot;;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-hansi-font-family:&quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#0563C1;
+  mso-font-kerning:0pt"><a href="https://developer.android.com/reference/java/text/SimpleDateFormat.html#number"><span style="color:#0563C1">Number</span></a></span></u></p>
+  </td>
+  <td width="95" valign="top" style="width:71.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0cm 4.95pt 0cm 4.95pt;height:16.5pt">
+  <p align="left" style="margin-bottom: 0.0001pt; line-height: normal; word-break: keep-all;"><span style=";font-family:Consolas;mso-fareast-font-family:
+  &quot;맑은 고딕&quot;;mso-bidi-font-family:굴림;color:#006600;mso-font-kerning:0pt">55</span></p>
+  </td>
+ </tr>
+</tbody></table><p><br /></p><p>예제를 보겠습니다.&nbsp;</p><p><br /></p><div class="colorscripter-code" style="color:#f0f0f0; font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important; overflow:auto"><table class="colorscripter-code-table" style="margin:0; padding:0; border:none; background-color:#272727; border-radius:4px; line-height:140%" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:6px; border-right:2px solid #4f4f4f"><div style="margin:0; padding:0; word-break:normal; text-align:right; color:#aaa; font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div></td><td style="padding:6px 0"><div style="margin:0; padding:0; color:#f0f0f0; font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important"><div style="padding: 0px 6px; white-space: pre; text-align: left;">SimpleDateFormat&nbsp;sdf&nbsp;<span style="color:#ff3399">=</span>&nbsp;<span style="color:#ff3399">new</span>&nbsp;SimpleDateFormat(<span style="color:#ffd500">"yyyy.MM.dd&nbsp;HH:mm:ss"</span>);</div><div style="padding: 0px 6px; white-space: pre; text-align: left;">&nbsp;</div><div style="padding: 0px 6px; white-space: pre; text-align: left;">Calendar&nbsp;cal&nbsp;<span style="color:#ff3399">=</span>&nbsp;Calendar.getInstance();</div><div style="padding: 0px 6px; white-space: pre; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div style="padding: 0px 6px; white-space: pre; text-align: left;"><span style="color:#4be6fa">System</span>.<span style="color:#4be6fa">out</span>.<span style="color:#4be6fa">println</span>(sdf.<span style="color:#4be6fa">format</span>(cal.getTime()));</div></div></td><td style="vertical-align:bottom; padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank"><span style="font-size:9px; word-break:normal; background-color:#4f4f4f; color:white; border-radius:10px; padding:1px">cs</span></a></td></tr></tbody></table></div><p><br /></p><p>위와 같이 simpleDateFormat 생성자에 패턴을 입력 했습니다.&nbsp;</p><p>format 함수를 이용하여 프린트 하면 원하는 패턴의 날짜형식이 리턴되게 됩니다.&nbsp;</p><p><br /></p><p><b><span style="color: rgb(255, 0, 0);">yyyy</span></b>&nbsp;&gt; 2018 과 같이 년도를 4자리로 표현하라는 의미 입니다.&nbsp;</p><p><b><span style="color: rgb(255, 0, 0);">MM</span></b> &gt; 시간의 분을 나타내는 mm 과 구분해야 하는데요. 대문자 MM 으로 써야 월을 의미합니다.&nbsp;</p><p><b><span style="color: rgb(255, 0, 0);">dd</span></b> &gt; 일을 의미 합니다 (해당 달의 몇번째 일인지를 의미)</p><p><b><span style="color: rgb(255, 0, 0);">HH</span></b> &gt; 시간 중 시를 의미 하며 HH 는 24시간으로 표기 hh 는 12시간 기준으로 am/pm 을 추가로 표기 가능합니다.&nbsp;</p><p><b><span style="color: rgb(255, 0, 0);">mm</span></b> &gt; 시간의 분을 나타내는 것으로 월을 의미하는 MM 과 구분해야 합니다.&nbsp;</p><p><b><span style="color: rgb(255, 0, 0);">ss</span></b> &gt; 초를 의미 합니다.&nbsp;</p><p><br /></p><p>년도를 의미하는 yyyy를 제외한 MM.dd HH:mm:ss 들이 두자리로 표기되어 있습니다 .</p><p>월/일 시:분:초 모두 최대 두자리로 표기 되기 때문인데요. 한자리일 경우 그냥 한자리로 표기 됩니다.&nbsp;</p><p><br /></p><p>위 코드를 실행한 결과 값은 다음과 같습니다.&nbsp;</p><p><b><span style="color: rgb(0, 85, 255);">2018.01.06 01:35:44</span></b></p><p><br /></p><p>yyyy 대신 yy 만 사용하게 되면 년도의 마지막 두자리만 표기 됩니다.&nbsp;</p><p><br /></p><div class="colorscripter-code" style="color:#f0f0f0; font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important; overflow:auto"><table class="colorscripter-code-table" style="margin:0; padding:0; border:none; background-color:#272727; border-radius:4px; line-height:140%" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:6px; border-right:2px solid #4f4f4f"><div style="margin:0; padding:0; word-break:normal; text-align:right; color:#aaa; font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div></td><td style="padding:6px 0"><div style="margin:0; padding:0; color:#f0f0f0; font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important"><div style="padding: 0px 6px; white-space: pre; text-align: left;">SimpleDateFormat&nbsp;sdf&nbsp;<span style="color:#ff3399">=</span>&nbsp;<span style="color:#ff3399">new</span>&nbsp;SimpleDateFormat(<span style="color:#ffd500">"yy.MM.dd&nbsp;HH:mm:ss"</span>);</div><div style="padding: 0px 6px; white-space: pre; text-align: left;">&nbsp;</div><div style="padding: 0px 6px; white-space: pre; text-align: left;">Calendar&nbsp;cal&nbsp;<span style="color:#ff3399">=</span>&nbsp;Calendar.getInstance();</div><div style="padding: 0px 6px; white-space: pre; text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div style="padding: 0px 6px; white-space: pre; text-align: left;"><span style="color:#4be6fa">System</span>.<span style="color:#4be6fa">out</span>.<span style="color:#4be6fa">println</span>(sdf.<span style="color:#4be6fa">format</span>(cal.getTime()));</div></div></td><td style="vertical-align:bottom; padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank"><span style="font-size:9px; word-break:normal; background-color:#4f4f4f; color:white; border-radius:10px; padding:1px">cs</span></a></td></tr></tbody></table></div><p><br /></p><p>결과 값은 다음과 같습니다.&nbsp;</p><p><b><span style="color: rgb(0, 85, 255);">18.01.06 01:47:47</span></b></p><p><br /></p><p><br /></p><p style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: &quot;KoPub Dotum&quot;; text-align: center; color: rgb(51, 51, 51); font-size: 14px; clear: none; float: none;"><span style="box-sizing: border-box; color: rgb(255, 0, 0); font-weight: 700;">▼</span><span style="box-sizing: border-box; color: rgb(255, 0, 0); font-weight: 700;">&nbsp;</span><span style="box-sizing: border-box; font-weight: 700;">도움이 되셨다면&nbsp;<span style="box-sizing: border-box; color: rgb(9, 0, 255);">로그인</span>이 필요 없는&nbsp;</span><span style="box-sizing: border-box; color: rgb(255, 0, 0); font-weight: bold;">▼</span></p><p style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: &quot;KoPub Dotum&quot;; text-align: center; color: rgb(51, 51, 51); font-size: 14px; clear: none; float: none;"><span style="box-sizing: border-box; font-weight: 700;"><span style="box-sizing: border-box; color: rgb(255, 0, 0);">▼ 하트 클릭&nbsp;<span style="box-sizing: border-box; color: rgb(0, 0, 0);">한번 부탁 드립니다&nbsp;</span>▼</span></span></p><p style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: &quot;KoPub Dotum&quot;; text-align: center; color: rgb(51, 51, 51); font-size: 14px; clear: none; float: none;"><span style="box-sizing: border-box; font-weight: 700;"><span style="box-sizing: border-box; color: rgb(9, 0, 255);">감사합니다 :D</span></span></p><p style="box-sizing: border-box; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-family: &quot;KoPub Dotum&quot;; text-align: justify; color: rgb(51, 51, 51); font-size: 14px;"></p><p><br style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: &quot;KoPub Dotum&quot;; font-size: 14px;"><br style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: &quot;KoPub Dotum&quot;; font-size: 14px;"><br /></p><div style="text-align:center;margin:10px 0 10px 0;clear:both"><div style="display:inline;text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+    style="display:inline-block;width:300px;height:250px"
+    data-ad-client="ca-pub-4494328016282844"
+    data-ad-slot="6149770614"
+        >
+</ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div><div style="display:inline;text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+    style="display:inline-block;width:300px;height:250px"
+    data-ad-client="ca-pub-4494328016282844"
+    data-ad-slot="6149770614"
+        >
+</ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div></div><div class="tt_adsense_bottom" style="margin-top:30px"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Adsense_반응형_20170626 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4494328016282844"
+     data-ad-slot="7347302216"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><div class="container_postbtn #post_button_group">
+    <div class="postbtn_like">
+        
+<script>
+    window.ReactionButtonType = 'reaction';
+    window.ReactionApiUrl = '//jamesdreaming.tistory.com/reaction';
+    window.ReactionReqBody = {
+        entryId: 99    }
+</script>
+<div class="wrap_btn" id=reaction-99></div>
+<script src=https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-364c9682d032414ba89c8d8eedf9723c548237d2/blogs/script/reaction/reaction-button-container.min.js?_version_=tistory-364c9682d032414ba89c8d8eedf9723c548237d2></script>
+        <div class="wrap_btn wrap_btn_share">
+    <button type="button" class="btn_post sns_btn btn_share" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F993F53365A4FB13C06" data-title="[ 자바 코딩 ] SimpleDateFormat 날짜 형식 지정하기" data-description="안녕하세요. 제임스입니다. 계속해서 날짜 관련 코드 작성법에 대해 정리하고 있는데요. 오늘은 날짜를 원하는 형식으로 프린트 하는 방법에 대해 알아 보겠습니다. 앞선 포스팅에서는 각각의 년, 월, 일, 시간.." data-profile-image="https://t1.daumcdn.net/cfile/tistory/222DA83E58862C4319" data-profile-name="IT 쉬운코딩이최고" data-pc-url="https://jamesdreaming.tistory.com/99" data-relative-pc-url="/99" data-blog-title="Dev Life in IT">
+        <span class="ico_postbtn ico_share">공유하기</span>
+    </button>
+</div>
+                <div class="wrap_btn wrap_btn_etc" data-entry-id="99" data-entry-visibility="public" data-category-visibility="public">
+    <button type="button" class="btn_post btn_etc2"><span class="ico_postbtn ico_etc">글 요소</span></button>
+</div>
+    </div>
+    <button type="button" class="btn_menu_toolbar btn_subscription  #subscribe" data-blog-id="2647223" data-url="https://jamesdreaming.tistory.com/99" data-device="web_pc">
+    <em class="txt_state">구독하기</em>
+    <strong class="txt_tool_id">Dev Life in IT</strong>
+    <span class="img_common_tistory ico_check_type1"></span>
+</button>
+    <div class="postbtn_ccl" data-ccl-type="3">
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" target="_blank" class="link_ccl">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span>        </span>
+    </a>
+</div>
+    <!--
+<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="http://creativecommons.org/licenses/by-fr/2.0/kr/" />
+    </Work>
+    <License rdf:about="http://creativecommons.org/licenses/by-fr/">
+        <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+                <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+                    </License>
+</rdf:RDF>
+-->
+</div><div class="tt-plugin tt-share-entry-with-sns tt-sns-icon-alignment-left tt-sns-icon-size-big">
+	<div class="tt-sns-wrap" id="ttSnsWrap-99">
+		<ul class="tt-sns-service-default">
+			<li class="tt-sns-service-kakaostory"><a href="javascript:;" onclick="ShareEntryWithSNS.share('kakaostory', '99', '%5B%20%EC%9E%90%EB%B0%94%20%EC%BD%94%EB%94%A9%20%5D%20SimpleDateFormat%20%EB%82%A0%EC%A7%9C%20%ED%98%95%EC%8B%9D%20%EC%A7%80%EC%A0%95%ED%95%98%EA%B8%B0');">카카오스토리</a></li>
+			<li class="tt-sns-service-twitter"><a href="javascript:;" onclick="ShareEntryWithSNS.share('twitter', '99', '%5B%20%EC%9E%90%EB%B0%94%20%EC%BD%94%EB%94%A9%20%5D%20SimpleDateFormat%20%EB%82%A0%EC%A7%9C%20%ED%98%95%EC%8B%9D%20%EC%A7%80%EC%A0%95%ED%95%98%EA%B8%B0');">트위터</a></li>
+			<li class="tt-sns-service-facebook"><a href="javascript:;" onclick="ShareEntryWithSNS.share('facebook', '99', '%5B%20%EC%9E%90%EB%B0%94%20%EC%BD%94%EB%94%A9%20%5D%20SimpleDateFormat%20%EB%82%A0%EC%A7%9C%20%ED%98%95%EC%8B%9D%20%EC%A7%80%EC%A0%95%ED%95%98%EA%B8%B0');">페이스북</a></li>
+		</ul>
+	</div>
+	<div class="tt-sns-clear"></div>
+</div>
+<div class="another_category another_category_color_gray">
+<h4>'<a href="/category/Java">Java</a>' 카테고리의 다른 글</h4>
+<table>
+<tr>
+<th>
+<a href="/103?category=685273" >[ 자바 코딩 ] 두 날짜 간 차이 구하기 Calendar.getTimeInMills()</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2018.01.12</td>
+</tr>
+<tr>
+<th>
+<a href="/102?category=685273" >[ 자바 코딩 ] 날짜 계산하기</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2018.01.11</td>
+</tr>
+<tr>
+<th>
+<a href="/99?category=685273"  class ="current" >[ 자바 코딩 ] SimpleDateFormat 날짜 형식 지정하기</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2018.01.10</td>
+</tr>
+<tr>
+<th>
+<a href="/98?category=685273" >[ 자바 코딩 ] GregorianCalendar 을 이용하여 원하는 날짜, 시간 정보 셋팅하기</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2018.01.08</td>
+</tr>
+<tr>
+<th>
+<a href="/95?category=685273" >[ 자바 코딩 ] Calendar 에 원하는 날짜, 시간 정보 셋팅하기</a>&nbsp;&nbsp;<span>(1)</span>
+</th>
+<td>
+2018.01.04</td>
+</tr>
+<tr>
+<th>
+<a href="/94?category=685273" >[ 자바 코딩 ] 오늘 날짜, 요일, 시간 구하기 (Calendar 클래스)</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2018.01.03</td>
+</tr>
+</table></div></div>
+						</div>
+						<div class="author alert alert-success">
+							<img src="https://t1.daumcdn.net/cfile/tistory/222DA83E58862C4319" alt="블로그 이미지" class="img-responsive img-circle text-center" width="50%">
+							<p><span class="text label label-primary">IT 쉬운코딩이최고</span></p>
+							<p>Android, Java, jsp, Linux 등의 프로그래밍 언어를 소개 합니다.</p>
+							<div style="clear: both;"></div>
+						</div>
+
+						
+							<div class="tagTrail">
+								<span class="tagText label label-success">Tag</span> <a href="/tag/Java%20SimpleDateFormat"  rel="tag">Java SimpleDateFormat</a>,
+<a href="/tag/%EC%9E%90%EB%B0%94%20SimpleDateFormat"  rel="tag">자바 SimpleDateFormat</a>,
+<a href="/tag/%EC%9E%90%EB%B0%94%20%EB%82%A0%EC%9E%90%20%EA%B3%84%EC%82%B0"  rel="tag">자바 날자 계산</a>,
+<a href="/tag/%EC%9E%90%EB%B0%94%20%EB%82%A0%EC%9E%90%20%ED%8C%A8%ED%84%B4"  rel="tag">자바 날자 패턴</a>,
+<a href="/tag/%EC%9E%90%EB%B0%94%20%EB%82%A0%EC%A7%9C%20%EA%B3%84%EC%82%B0"  rel="tag">자바 날짜 계산</a>,
+<a href="/tag/%EC%9E%90%EB%B0%94%20%EB%82%A0%EC%A7%9C%20%ED%8C%A8%ED%84%B4"  rel="tag">자바 날짜 패턴</a>,
+<a href="/tag/%EC%9E%90%EB%B0%94%EC%BD%94%EB%94%A9"  rel="tag">자바코딩</a>
+							</div>
+						
+
+						<div class="actionTrail">
+								<a href="#tb" onclick="alert('이 글에는 트랙백을 달 수 없습니다\t'); return false"><span id="trackbackCount99">트랙백 <span class="cnt label label-default">0개</span></span></a>,
+								<a href="#rp" onclick=""><span id="commentCount99_0">댓글 <span class="cnt label label-default">0개</span>가 달렸습니다</span></a>
+						</div>
+
+						<div id="entry99Trackback" style="display:none">
+							<div class="trackback">
+								
+							</div><!-- trackback close -->
+						</div>
+
+						<div id="entry99Comment">
+							<div class="comment">
+								<h3 class="text-primary"><i class="fa fa-comments"></i>댓글을 달아 주세요 </h3>
+								<div id="commentList">
+									
+								</div><!-- commentList close -->
+
+								<form method="post" action="/comment/add/99" onsubmit="return false" style="margin: 0">
+									<div class="commentWrite">
+										
+											
+												<form class="form-horizontal">
+													<div class="form-group">
+														<div class="col-md-12">
+															<div class="input-group">
+															<span class="input-group-addon"><i class="fa fa-user"></i></span>
+															<input type="text" class="form-control" id="name" name="name" value="">
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="col-md-12">
+															<div class="input-group">
+															<span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+															<input type="password" class="form-control" id="password" name="password" value="">
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="col-md-12">
+															<div class="input-group">
+															<span class="input-group-addon"><i class="fa fa-home"></i></span>
+															<input type="text" class="form-control" id="homepage" name="homepage" value="http://">
+															</div>
+														</div>
+													</div>
+												</form>
+											
+											<p class="secretWrap">
+												<input type="checkbox" name="secret" class="checkbox" />
+												<label for="secret"> 비밀글 </label>
+											</p>
+										
+										<p>
+											<textarea name="comment" class="form-control" rows="10"></textarea>
+										</p>
+										<p>
+											<input class="btn btn-primary" type="submit" value="댓글 달기" onclick="addComment(this, 99); return false;">
+										</p>
+									</div><!-- commentWrite close -->
+								</form>
+
+							</div><!-- comment close -->
+						</div><script type="text/javascript">loadedComments[99]=true;findFragmentAndHighlight(99)</script>
+					</div><!-- entry close -->
+				
+
+				
+					<div id="paging">
+						<nav class="text-center">
+							<ul class="pagination">
+								<li>
+									<a  href='/101' class="" aria-label="이전">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+						    	</li>
+						    	
+								<li><a  href='/238'><span >1</span></a></li>
+								
+								<li><a ><span >&middot;&middot;&middot;</span></a></li>
+								
+								<li><a  href='/104'><span >134</span></a></li>
+								
+								<li><a  href='/103'><span >135</span></a></li>
+								
+								<li><a  href='/102'><span >136</span></a></li>
+								
+								<li><a  href='/101'><span >137</span></a></li>
+								
+								<li><a ><span class="selected">138</span></a></li>
+								
+								<li><a  href='/100'><span >139</span></a></li>
+								
+								<li><a  href='/98'><span >140</span></a></li>
+								
+								<li><a  href='/97'><span >141</span></a></li>
+								
+								<li><a  href='/96'><span >142</span></a></li>
+								
+								<li><a ><span >&middot;&middot;&middot;</span></a></li>
+								
+								<li><a  href='/1'><span >234</span></a></li>
+								
+								<li>
+									<a  href='/100' class="" aria-label="다음">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				
+			</div>
+			<div class="col-md-3">
+				<div class="sidebar">
+				
+<!--
+			<div class="col-md-3 col-sm-6">
+-->
+			<div class="">
+				<!-- 프로필 모듈 -->
+				<div id="profile">
+					<h3>쉬운코딩이최고</h3>
+					<div id="blogImage"><img src="https://t1.daumcdn.net/cfile/tistory/222DA83E58862C4319" alt="블로그 이미지" class="img-responsive img-circle text-center" width="50%"></div>
+					<p>Android, Java, jsp, Linux 등의 프로그래밍 언어를 소개 합니다.</p>
+					<div class="social">
+						<a href="#"><i class="fa fa-facebook-square fa-2x" style="color:#3b5998"></i></a>
+						<a href="#"><i class="fa fa-twitter-square fa-2x" style="color:#00aced"></i></a>
+						<a href="#"><i class="fa fa-instagram fa-2x" style="color:#517fa4"></i></a>
+						<a href="#"><i class="fa fa-google-plus-square fa-2x" style="color:#dd4b39"></i></a>
+						<a href="#"><i class="fa fa-tumblr-square fa-2x" style="color:#32506d"></i></a>
+						<a href="#"><i class="fa fa-pinterest-square fa-2x" style="color:#cb2027"></i></a>
+						<a href="#"><i class="fa fa-wordpress fa-2x" style="color:#21759b"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class='module module_plugin'><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Adsense_300x250_20170626 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4494328016282844"
+     data-ad-slot="6149770614"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><div class='module module_plugin'><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Adsense_300x600 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-4494328016282844"
+     data-ad-slot="1270952210"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+					<!-- 카테고리 모듈 -->
+						<div id="category" class="widget">
+							<h3><i class="fa fa-folder"></i>카테고리</h3>
+							<ul class="tt_category">
+	<li class="">
+		<a class="link_tit" href="/category">
+			분류 전체보기							<span class="c_cnt">(234)</span>
+			
+					</a>
+
+				<ul class="category_list">
+							<li class="">
+					<a class="link_item" href="/category/Dev%20Tips">
+						Dev Tips													<span class="c_cnt">(11)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Java">
+						Java													<span class="c_cnt">(60)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Android%20%28Java%29">
+						Android (Java)													<span class="c_cnt">(32)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Android%20%28Kotlin%29">
+						Android (Kotlin)													<span class="c_cnt">(2)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Android%20%EC%86%8C%EC%8B%9D">
+						Android 소식													<span class="c_cnt">(5)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Linux">
+						Linux													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/JSON">
+						JSON													<span class="c_cnt">(0)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/jquery">
+						jquery													<span class="c_cnt">(4)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/javascript">
+						javascript													<span class="c_cnt">(24)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/jsp">
+						jsp													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/HTML">
+						HTML													<span class="c_cnt">(2)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%ED%81%AC%EB%A1%AC%20%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84%EA%B5%AC">
+						크롬 개발자도구													<span class="c_cnt">(8)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Oracle">
+						Oracle													<span class="c_cnt">(0)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Youtube">
+						Youtube													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EB%84%A4%EC%9D%B4%EB%B2%84%EC%9B%B9%EB%A7%88%EC%8A%A4%ED%84%B0%EB%8F%84%EA%B5%AC">
+						네이버웹마스터도구													<span class="c_cnt">(2)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Utilz">
+						Utilz													<span class="c_cnt">(14)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/Utilz/%EB%AC%B4%EB%B9%84%EB%A9%94%EC%9D%B4%EC%BB%A4">
+									무비메이커
+																			<span class="c_cnt">(3)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/Utilz/%EB%8B%A4%EC%9D%8C%20%ED%8C%9F%20%EC%9D%B8%EC%BD%94%EB%8D%94">
+									다음 팟 인코더
+																			<span class="c_cnt">(6)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/Utilz/%ED%8C%8C%EC%9B%8C%EB%94%94%EB%A0%89%ED%84%B0">
+									파워디렉터
+																			<span class="c_cnt">(2)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/Utilz/%ED%94%BD%ED%94%BD">
+									픽픽
+																			<span class="c_cnt">(1)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EA%B1%B4%EA%B0%95">
+						건강													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%9C%A1%EC%95%84">
+						육아													<span class="c_cnt">(3)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%9C%A0%EC%9A%A9%ED%95%9C%EC%A0%95%EB%B3%B4">
+						유용한정보													<span class="c_cnt">(21)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EB%A8%B9%EA%B1%B0%EB%A6%AC">
+						먹거리													<span class="c_cnt">(18)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%97%AC%ED%96%89">
+						여행													<span class="c_cnt">(13)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EA%B2%8C%EC%9E%84">
+						게임													<span class="c_cnt">(2)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%A0%9C%ED%92%88%EB%A6%AC%EB%B7%B0">
+						제품리뷰													<span class="c_cnt">(3)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%A2%8B%EC%9D%80%EA%B8%80">
+						좋은글													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EB%AA%A8%EB%B0%94%EC%9D%BC%20%EC%95%B1%20%EC%B6%94%EC%B2%9C">
+						모바일 앱 추천													<span class="c_cnt">(4)</span>
+						
+											</a>
+
+					
+				</li>
+					</ul>
+			</li>
+</ul>
+						</div>
+					
+<!--
+			<div class="col-md-3 col-sm-6">
+-->
+			<div class="">	
+				<!-- 최근 포스트 모듈 -->
+					<div id="recentPost">
+						<h3>LATEST FROM OUR BLOG</h3>
+						<ul class="fa-ul">
+							
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/238"> 카카오톡, 카카오페이지, 네⋯.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries238"></span></span>
+								</li>
+							
+
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/237"> 카카오 키즈워치2 개봉기.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries237"></span></span>
+								</li>
+							
+
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/236"> 갤럭시 알림바 상단 디바이스⋯.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries236"></span></span>
+								</li>
+							
+
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/234"> [ GitHub ] Your account has⋯.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries234"></span></span>
+								</li>
+							
+
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/235"> 갤럭시 알림바 상단 디바이스⋯.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries235"></span></span>
+								</li>
+							
+
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/232"> 갤럭시 카메라 무음 설정 방법.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries232"></span></span>
+								</li>
+							
+
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/231"> [ 추천 앱 ] Screen Orientat⋯.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries231"></span></span>
+								</li>
+							
+
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/230"> 이지크립트 2.4 (EasyCrypt 2⋯.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries230"></span></span>
+								</li>
+							
+
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/229"> 구글 정기결제 취소 (구독 취⋯.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries229"></span></span>
+								</li>
+							
+
+								<li><i class="fa-li fa fa-chevron-right"></i>
+									<a href="/228"> 종로횟집 - 해미수산.</a>
+									<span class="cnt"><span id="commentCountOnRecentEntries228"></span></span>
+								</li>
+							
+						</ul>
+						<a class="btn btn-primary" href="https://jamesdreaming.tistory.com/rss" onclick="window.open(this.href); return false" role="button"><i class="fa fa-rss"></i> RSS 구독하기</a>
+					</div>
+				</div>
+			
+					<!-- 달력 모듈 -->
+						<div id="calendar" class="widget">
+							<h3><i class="fa fa-calendar-o"></i>달력</h3>
+									<table class="tt-calendar" cellpadding="0" cellspacing="1" style="width: 100%; table-layout: fixed">
+			<caption class="cal_month">
+				<a href="/archive/202104" title="1개월 앞의 달력을 보여줍니다.">&laquo;</a>
+				&nbsp;
+				<a href="/archive/202105"
+				   title="현재 달의 달력을 보여줍니다.">2021/05</a>
+				&nbsp;
+				<a href="/archive/202106" title="1개월 뒤의 달력을 보여줍니다.">&raquo;</a>
+			</caption>
+			<thead>
+			<tr>
+				<th class="cal_week2">일</th>
+				<th class="cal_week1">월</th>
+				<th class="cal_week1">화</th>
+				<th class="cal_week1">수</th>
+				<th class="cal_week1">목</th>
+				<th class="cal_week1">금</th>
+				<th class="cal_week1">토</th>
+			</tr>
+			</thead>
+			<tbody>
+					<tr class="cal_week">
+			<td class="cal_day1">&nbsp;</td>
+			<td class="cal_day1">&nbsp;</td>
+			<td class="cal_day1">&nbsp;</td>
+			<td class="cal_day1">&nbsp;</td>
+			<td class="cal_day1">&nbsp;</td>
+			<td class="cal_day1">&nbsp;</td>
+			<td class=" cal_day cal_day3">1</td>
+		</tr>
+		<tr class="cal_week">
+			<td class=" cal_day cal_day_sunday cal_day3">2</td>
+			<td class=" cal_day cal_day3">3</td>
+			<td class=" cal_day cal_day3">4</td>
+			<td class=" cal_day cal_day3">5</td>
+			<td class=" cal_day cal_day3">6</td>
+			<td class=" cal_day cal_day3">7</td>
+			<td class=" cal_day cal_day3">8</td>
+		</tr>
+		<tr class="cal_week">
+			<td class=" cal_day cal_day_sunday cal_day3">9</td>
+			<td class=" cal_day cal_day3">10</td>
+			<td class=" cal_day cal_day3">11</td>
+			<td class=" cal_day cal_day3">12</td>
+			<td class=" cal_day cal_day3">13</td>
+			<td class=" cal_day cal_day3">14</td>
+			<td class=" cal_day cal_day3">15</td>
+		</tr>
+		<tr class="cal_week cal_current_week">
+			<td class=" cal_day cal_day_sunday cal_day3">16</td>
+			<td class=" cal_day cal_day3">17</td>
+			<td class=" cal_day cal_day3">18</td>
+			<td class=" cal_day cal_day3">19</td>
+			<td class=" cal_day cal_day4">20</td>
+			<td class=" cal_day cal_day3">21</td>
+			<td class=" cal_day cal_day3">22</td>
+		</tr>
+		<tr class="cal_week">
+			<td class=" cal_day cal_day_sunday cal_day3">23</td>
+			<td class=" cal_day cal_day3">24</td>
+			<td class=" cal_day cal_day3">25</td>
+			<td class=" cal_day cal_day3">26</td>
+			<td class=" cal_day cal_day3">27</td>
+			<td class=" cal_day cal_day3">28</td>
+			<td class=" cal_day cal_day3">29</td>
+		</tr>
+		<tr class="cal_week">
+			<td class=" cal_day cal_day_sunday cal_day3">30</td>
+			<td class=" cal_day cal_day3">31</td>
+			<td class="cal_day2">&nbsp;
