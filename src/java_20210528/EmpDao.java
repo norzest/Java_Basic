@@ -3,6 +3,7 @@ package java_20210528;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -47,7 +48,18 @@ public class EmpDao {
 			sql.append("INSERT INTO emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) ");
 			sql.append("VALUES (?, ?, ?, ?, CURDATE(), ?, ?, ?) ");
 			
+			pstmt = con.prepareStatement(sql.toString());
+			int index = 1;
+			pstmt.setInt(index++, dto.getNo());
+			pstmt.setString(index++, dto.getName());
+			pstmt.setString(index++, dto.getJob());
+			pstmt.setInt(index++, dto.getMgr());
+			pstmt.setDouble(index++, dto.getSal());
+			pstmt.setDouble(index++, dto.getComm());
+			pstmt.setInt(index++, dto.getDeptNo());
 			
+			pstmt.executeUpdate();
+			success = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -68,7 +80,20 @@ public class EmpDao {
 			sql.append("UPDATE emp ");
 			sql.append("SET ename = ?, job = ?, mgr = ?, hiredate = CURDATE(), ");
 			sql.append("sal = ?, comm = ?, deptno = ? ");
-			sql.append("WHERE empnp = ? ");
+			sql.append("WHERE empno = ? ");
+			
+			pstmt = con.prepareStatement(sql.toString());
+			int index = 1;
+			pstmt.setString(index++, dto.getName());
+			pstmt.setString(index++, dto.getJob());
+			pstmt.setInt(index++, dto.getMgr());
+			pstmt.setDouble(index++, dto.getSal());
+			pstmt.setDouble(index++, dto.getComm());
+			pstmt.setInt(index++, dto.getDeptNo());
+			pstmt.setInt(index++, dto.getNo());
+			
+			pstmt.executeUpdate();
+			success = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -88,6 +113,12 @@ public class EmpDao {
 			StringBuilder sql = new StringBuilder();
 			sql.append("DELETE FROM emp ");
 			sql.append("WHERE empno = ? ");
+			
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setInt(0, no);
+			
+			pstmt.executeUpdate();
+			success = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -104,6 +135,28 @@ public class EmpDao {
 		try {
 			con = DriverManager.getConnection(URL, ID, PWD);
 
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT empno, ename, job, mgr, date_format(hiredate, '%Y/%m/%d') hiredate, sal, nvl(comm, 0) as comm, deptno FROM emp ");
+			sql.append("ORDER BY hiredate desc ");
+			sql.append("LIMIT ?, ? ");
+			
+			pstmt = con.prepareStatement(sql.toString());
+			int index = 1;
+			pstmt.setInt(index++, start);
+			pstmt.setInt(index++, len);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				index = 1;
+				list.add(new EmpDto(rs.getInt(index++),
+						 rs.getString(index++),
+						 rs.getString(index++),
+						 rs.getInt(index++),
+						 rs.getString(index++),
+						 rs.getDouble(index++),
+						 rs.getDouble(index++),
+						 rs.getInt(index++)));
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
