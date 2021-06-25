@@ -40,7 +40,6 @@ public class ObjectDemo {
 	public static void main(String[] args) {
 		Test t1 = new Test("asd");
 		Test t2 = new Test("asd");
-
 		System.out.println(t1==t2); // 주소가 달라 false
 		System.out.println(t1.equals(t2)); // 같은 오브젝트를 참조하여 주소가 같아짐
 		// equals 함수를 override할때 hashcode 또한 override 되어 같아짐
